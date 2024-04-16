@@ -9,6 +9,18 @@ async function fetchJSON(url) {
     let data = await response.json()
     return data
 }
+/**
+ * Une fonction qui fait une requete HTTP a l'url indiquer 
+ * est qui extrait le json de la reponse HTTP
+ * @param {*} url 
+ * @returns une promesse qui quand elle resolue contient les données
+ */
+// async function fetchJSON(urlDuSort) {
+//     let responseDuSort = await fetch(urlDuSort)
+//     let dataDuSort = await responseDuSort.json()
+//     return dataDuSort
+// }
+
 
 /**
  * Fonction qui créer une chaine html avec
@@ -17,26 +29,26 @@ async function fetchJSON(url) {
  * @returns une string avec du code html
  */
 function afficher(lesSorts) {
-    let chaine = ""
-    let listeSorts = lesSorts.results
+    let chaine = "";
+    let listeSorts = lesSorts.results;
     for (const unSort of listeSorts) {
         chaine += `
         <div class='col my-2'>
-        <div class="card">
-        <p class="heading">
-        ${unSort.name}
-        </p>
-        <p>
-        ${unSort.level}
-        </p>
-        <p>
-        
-        </p>
-        </div>
-      </div>`
+            <a href="descriptionSort.html" class="card-link">
+                <div class="card">
+                    <p class="heading">
+                        ${unSort.name}
+                    </p>
+                    <p>
+                        Niveau du sort: ${unSort.level}
+                    </p>
+                </div>
+            </a>
+        </div>`;
     }
-    return chaine
+    return chaine;
 }
+
 
 
 
